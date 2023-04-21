@@ -1,0 +1,13 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .blog-rich-text h2 {
+    @apply text-3xl font-semibold text-neutral-900 mb-3;
+  }
+
+  .blog-rich-text p {
+    @apply text-neutral-700 mb-2 leading-normal;
+  }
+}
