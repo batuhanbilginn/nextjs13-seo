@@ -1,4 +1,4 @@
-import { Post, PostWithAuthorAndCategory } from "@/types/database";
+import { PostWithAuthorAndCategory } from "@/types/database";
 import Image from "next/image";
 import Link from "next/link";
 import { HiOutlineArrowUpRight } from "react-icons/hi2";
@@ -31,7 +31,7 @@ const PostCard = ({
         width={600}
         height={400}
         alt={post.title!!}
-        src={post.image!!}
+        src={post.image + "&w=600&h=400&auto=format&q=75"}
         blurDataURL={post.image + "?key=blur-image"}
         placeholder="blur"
       />
