@@ -4,6 +4,38 @@ import getAllCategories from "@/lib/getAllCategories";
 import getCategoryData from "@/lib/getCategoryData";
 import { notFound } from "next/navigation";
 
+export async function generateMetadata({
+  params: { categories },
+}: {
+  params: {
+    categories: string;
+  };
+}) {
+  try {
+    const category = await getCategoryData(categories);
+    if (!category)
+      return {
+        title: "Not Found",
+        description: "The page you are looking for does not exist.",
+      };
+    return {
+      title: category.title,
+      description: category.description,
+      robots: {
+        index: false,
+        follow: true,
+        nocache: true,
+      },
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      title: "Not Found",
+      description: "The page you are looking for does not exist.",
+    };
+  }
+}
+
 export async function generateStaticParams() {
   const categories = await getAllCategories();
 

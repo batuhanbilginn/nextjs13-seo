@@ -32,8 +32,6 @@ const PostCard = ({
         height={400}
         alt={post.title!!}
         src={post.image + "&w=600&h=400&auto=format&q=75"}
-        blurDataURL={post.image + "?key=blur-image"}
-        placeholder="blur"
       />
       {/* Content */}
       <div>

@@ -7,11 +7,13 @@ const getCategoryData = async (slug: string) => {
       .from("categories")
       .select(`*, posts(*, author(full_name, avatar_url), category(title, id))`)
       .eq("slug", slug)
-      .returns<CategoryWithPosts[]>();
+      .returns<CategoryWithPosts[]>()
+      .limit(1)
+      .single();
 
     if (!category && error) return null;
 
-    return category[0];
+    return category;
   } catch (error) {
     console.log(error);
     return null;

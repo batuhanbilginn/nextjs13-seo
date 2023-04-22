@@ -1,9 +1,8 @@
-import parse, { Element, HTMLReactParserOptions } from "html-react-parser";
-import Image from "next/image";
+import parse, { HTMLReactParserOptions } from "html-react-parser";
 
 const getParsedHTML = (body: string) => {
   const options: HTMLReactParserOptions = {
-    replace: (domNode) => {
+    /*  replace: (domNode) => {
       if (domNode instanceof Element && domNode.attribs) {
         if (domNode.name === "img") {
           const { src, alt } = domNode.attribs;
@@ -19,7 +18,7 @@ const getParsedHTML = (body: string) => {
           );
         }
       }
-    },
+    }, */
   };
 
   return parse(body, options);

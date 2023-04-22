@@ -8,7 +8,8 @@ const getPostData = async (slug: string) => {
       .from("posts")
       .select(`*, author(full_name, avatar_url), category(title, id)`)
       .eq("slug", slug)
-      .returns<PostWithAuthorAndCategory>()
+      .returns<PostWithAuthorAndCategory[]>()
+      .limit(1)
       .single();
 
     if (!post && error) return null;
